@@ -12,6 +12,7 @@ html, body,figure,img,div,input,textarea,p,h1,h2,h3,h4,h5,ul,li,a,main{
 	--corSecundaria:#f7e0bf;
 	--CorBackgroundSecundaria:#fff;
 	--CorFooter:#170e05;
+	--corAnimation:#272b3a;
 }
 body{
 	font-family: 'Open Sans', sans-serif;
@@ -79,10 +80,20 @@ header .coluna ul{
 }
 header .coluna ul li{
 	margin: 0 0 12px;
+	transition: .3s;
 }
 header .coluna ul li a{
-	font-size: 1rem;
-	color: var(--corTexto);	
+	
+    border-radius: 30px 30px 30px;
+    background-color: var(--corTexto);
+    font-size: 0.97rem;
+    color: white;
+    padding: 4px 10px;	
+
+}
+header .coluna ul:hover li{
+
+	transform: scale(1) translateX(5px);   	
 }
 
 /* pagina inicial /*#f9e9de*/
@@ -234,6 +245,7 @@ label span{
 }
 .ative-dark:checked ~.dark-mode header .coluna ul li a{
 	color: var(--corTexto);	
+	background-color: var(--corBackgroundPrimaria)
 }
 .ative-dark:checked ~.dark-mode header .coluna p{
 	color: var(--corTexto);
@@ -264,14 +276,15 @@ label span{
   	height: 100%;
   	}
 }
-@keyframes Pula{
+@keyframes COMPLETA{
 	from{
-  	bottom: 0;
+  	background-color: transparent;
   	} 
   	to{
-  	bottom: 20px;
+  	background-color: var(--corAnimation);
   	}
 }
+
 /*RESPONSIVO @MEDIA*/
 @media only screen and (min-width: 768px){
 		.linha{
@@ -309,6 +322,14 @@ label span{
 			flex-basis: 60%;
 
 			text-align: left;
+		}
+		header .coluna ul li a {
+		    animation-name: COMPLETA;
+		    animation-duration: 1s, 2s;
+		    animation-delay: 1s, 3s;
+		    animation-fill-mode: forwards;
+		    transition: .2s;
+		    width: 40px;
 		}
 		main .coluna section{
 			border: 1px solid transparent;
