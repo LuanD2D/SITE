@@ -7,11 +7,12 @@ html, body,figure,img,div,input,textarea,p,h1,h2,h3,h4,h5,ul,li,a,main{
 
 }
 :root{
-	--corBackgroundPrimaria:#e98f56;
+	--corBackgroundPrimaria:#0a1129;
 	--corTexto:#636363;
 	--corSecundaria:#f7e0bf;
 	--CorBackgroundSecundaria:#fff;
 	--CorFooter:#170e05;
+	--corAnimation:#272b3a;
 }
 body{
 	font-family: 'Open Sans', sans-serif;
@@ -21,6 +22,9 @@ body{
 .hidden{
 	display: none;
 
+}
+#goku{
+	margin-left: 72%;
 }
 
 .coluna{
@@ -74,19 +78,31 @@ header .coluna p{
 
 }
 header .coluna ul{
-	margin: 16px 0 0;
+	margin: -66px 0 0;
+
 	
 }
 header .coluna ul li{
 	margin: 0 0 12px;
+	transition: .3s;
 }
 header .coluna ul li a{
-	font-size: 1rem;
-	color: var(--corTexto);	
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
+    border-radius: 30px 30px 30px;
+    background-color: var(--corTexto);
+    font-size: 0.97rem;
+    color: white;
+    padding: 4px 10px;	
+
+}
+header .coluna ul:hover li{
+
+	transform: scale(1) translateX(5px);   	
 }
 
 /* pagina inicial /*#f9e9de*/
 main .coluna section{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	border-bottom: 1px solid #f9e9de;   
     padding: 20px;
     
@@ -94,11 +110,13 @@ main .coluna section{
 
 
 main .coluna section h2{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	font-size: 1.3rem;
     margin: 0 0 15px;
 	
 }
 main .coluna section p{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	font-size: 0.9rem;
     color: var(--corTexto);
     line-height: 1.5;
@@ -106,18 +124,22 @@ main .coluna section p{
 }
 
 main .coluna section ul li{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	margin: 0 0 7px;
 	
 }
 main .coluna section ul li h3{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	font-size: 1.1rem;
 	
 }
 main .coluna section ul li p{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	line-height: 36px;
 	
 }
 main .coluna section ul li strong{
+	font-family: TradeGothicLTPro-BdCn20,"Helvetica Neue",sans-serif;
 	font-size: 0.9rem;
     font-weight: 500;
     margin: 5px 0 10px;
@@ -125,7 +147,7 @@ main .coluna section ul li strong{
 }
 /*FOOTER*/
 footer{
-	background-color: var(--CorFooter);
+	background-color: #222;
 }
 footer .container{
 	padding: 20px;
@@ -166,13 +188,13 @@ header .container{
 }
 label{
 	width: 60px;
-	background-color: orange;
+	background-color: #ff6300;
 	color: #e98f56;
 	border-radius: 30px;
     position: absolute;
     top: 30px;
     right: 14px;
-    border: solid 0.1rem orange;
+    border: solid 0.1rem #ff6300;
     padding: 2px 8px;
     box-sizing:border-box;
     cursor: pointer;
@@ -234,6 +256,7 @@ label span{
 }
 .ative-dark:checked ~.dark-mode header .coluna ul li a{
 	color: var(--corTexto);	
+	background-color: var(--corBackgroundPrimaria)
 }
 .ative-dark:checked ~.dark-mode header .coluna p{
 	color: var(--corTexto);
@@ -264,14 +287,15 @@ label span{
   	height: 100%;
   	}
 }
-@keyframes Pula{
+@keyframes COMPLETA{
 	from{
-  	bottom: 0;
+  	background-color: transparent;
   	} 
   	to{
-  	bottom: 20px;
+  	background-color: var(--corAnimation);
   	}
 }
+
 /*RESPONSIVO @MEDIA*/
 @media only screen and (min-width: 768px){
 		.linha{
@@ -309,6 +333,14 @@ label span{
 			flex-basis: 60%;
 
 			text-align: left;
+		}
+		header .coluna ul li a {
+		    animation-name: COMPLETA;
+		    animation-duration: 1s, 2s;
+		    animation-delay: 1s, 3s;
+		    animation-fill-mode: forwards;
+		    transition: .2s;
+		    width: 40px;
 		}
 		main .coluna section{
 			border: 1px solid transparent;
